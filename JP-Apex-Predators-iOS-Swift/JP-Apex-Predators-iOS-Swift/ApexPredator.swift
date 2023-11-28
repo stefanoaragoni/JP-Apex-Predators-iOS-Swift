@@ -25,6 +25,6 @@ struct MovieScene: Codable {
     
     let id: Int
     let movie: String
-    let scene_description: String
+    let sceneDescription: String
     
 }
