@@ -12,6 +12,7 @@
 		B5BD1EDF2B16A67900E7233F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BD1EDE2B16A67900E7233F /* Assets.xcassets */; };
 		B5BD1EE22B16A67900E7233F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5BD1EE12B16A67900E7233F /* Preview Assets.xcassets */; };
 		B5BD1EE92B16A8CA00E7233F /* jpapexpredators.json in Resources */ = {isa = PBXBuildFile; fileRef = B5BD1EE82B16A8CA00E7233F /* jpapexpredators.json */; };
+		B5BD1EEB2B16ADA300E7233F /* ApexPredator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BD1EEA2B16ADA300E7233F /* ApexPredator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		B5BD1EDE2B16A67900E7233F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5BD1EE12B16A67900E7233F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B5BD1EE82B16A8CA00E7233F /* jpapexpredators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jpapexpredators.json; sourceTree = "<group>"; };
+		B5BD1EEA2B16ADA300E7233F /* ApexPredator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexPredator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				B5BD1EDA2B16A67800E7233F /* JP_Apex_Predators_iOS_SwiftApp.swift */,
+				B5BD1EEA2B16ADA300E7233F /* ApexPredator.swift */,
 				B5BD1EDC2B16A67800E7233F /* ContentView.swift */,
 				B5BD1EE82B16A8CA00E7233F /* jpapexpredators.json */,
 				B5BD1EDE2B16A67900E7233F /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5BD1EEB2B16ADA300E7233F /* ApexPredator.swift in Sources */,
 				B5BD1EDD2B16A67800E7233F /* ContentView.swift in Sources */,
 				B5BD1EDB2B16A67800E7233F /* JP_Apex_Predators_iOS_SwiftApp.swift in Sources */,
 			);
