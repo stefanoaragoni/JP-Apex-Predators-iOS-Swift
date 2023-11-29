@@ -17,7 +17,7 @@ struct ContentView: View {
             List {
                 ForEach(apController.apexPredators) { predator in
                     
-                    NavigationLink(destination: Text("Dino details go here")) {
+                    NavigationLink(destination: PredatorDetail(predator: predator)) {
                         PredatorRow(predator: predator)
                     }
                     

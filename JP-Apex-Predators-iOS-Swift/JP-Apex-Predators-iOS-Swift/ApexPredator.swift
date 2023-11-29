@@ -34,7 +34,7 @@ struct ApexPredator: Codable, Identifiable{
 }
 
 // Codable in order to make every dinasaur in JSON an ApexPredator type
-struct MovieScene: Codable {
+struct MovieScene: Codable, Identifiable {
     
     let id: Int
     let movie: String

@@ -31,7 +31,51 @@ struct PredatorDetail: View {
                         .degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0)
                     )
                 
+                VStack(alignment: .leading) {
                     
+                    Text(predator.name)
+                        .font(.largeTitle)
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 8)
+                    
+                    Text("Appears in:")
+                        .font(.title3)
+                        .fontWeight(.medium)
+                        .padding(.bottom, 4)
+                    
+                    ForEach(predator.movies, id: \.self) { movie in       // id: \.self is necessary for ForEach
+                        
+                        Text("     • " + movie)
+                            .font(.subheadline)
+                        
+                    }
+                    
+                    Text("Movie moments:")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .fontWeight(.semibold)
+                        .padding(.top, 15)
+                    
+                    ForEach(predator.movieScenes) { scene in
+                        
+                        Text(scene.movie)
+                            .font(.title2)
+                            .padding([.top, .bottom], 1)
+                        
+                        Text(scene.sceneDescription)
+                            .padding(.bottom, 15)
+                        
+                    }
+                    
+                    Text("Read more:")
+                        .font(.caption)
+                    
+                    Link(predator.link, destination: URL(string: predator.link)!)
+                        .font(.caption)
+                        .foregroundStyle(.blue)
+                }
+                .offset(y: -210)
+                .padding()
+                
             }
             
         }
