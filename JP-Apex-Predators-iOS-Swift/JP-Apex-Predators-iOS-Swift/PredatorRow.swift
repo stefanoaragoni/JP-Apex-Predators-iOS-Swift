@@ -16,7 +16,7 @@ struct PredatorRow: View {
         HStack{
             
             // Dinosaur image
-            Image("indoraptor")
+            Image(predator.name.lowercased().filter { $0 != " "}) // $0 checks every char, and removes " "
                 .resizable()
                 .scaledToFit()
                 .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
@@ -25,16 +25,22 @@ struct PredatorRow: View {
             VStack (alignment: .leading){
                 
                 // Name
-                Text("Indoraptor")
+                Text(predator.name)
                     .fontWeight(.bold)
                 
                 // Type
-                Text("Land")
+                Text(predator.type.capitalized)
                     .font(.subheadline)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 5)
-                    .overlay( RoundedRectangle(cornerRadius: 20).fill(.brown.opacity(0.33)))
+                    .overlay( 
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(
+                                predator.typeOverlay()
+                                    .opacity(0.33)
+                            )
+                    )
                 
             }
         }

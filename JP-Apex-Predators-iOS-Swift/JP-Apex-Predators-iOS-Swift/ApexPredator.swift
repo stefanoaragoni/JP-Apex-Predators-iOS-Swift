@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 // Codable in order to make every dinasaur in JSON an ApexPredator type
 struct ApexPredator: Codable, Identifiable{
@@ -18,6 +18,19 @@ struct ApexPredator: Codable, Identifiable{
     let movieScenes: [MovieScene]
     let link: String
     
+    
+    func typeOverlay() -> Color {
+        switch type {
+            case "land":
+                return .brown
+            case "air":
+                return .teal
+            case "sea":
+                return .blue
+            default:
+                return .brown
+        }
+    }
 }
 
 // Codable in order to make every dinasaur in JSON an ApexPredator type
