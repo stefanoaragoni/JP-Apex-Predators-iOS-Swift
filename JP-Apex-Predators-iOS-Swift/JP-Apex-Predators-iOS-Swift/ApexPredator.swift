@@ -9,7 +9,7 @@ import Foundation
 
 
 // Codable in order to make every dinasaur in JSON an ApexPredator type
-struct ApexPredator: Codable {
+struct ApexPredator: Codable, Identifiable{
     
     let id: Int
     let name: String

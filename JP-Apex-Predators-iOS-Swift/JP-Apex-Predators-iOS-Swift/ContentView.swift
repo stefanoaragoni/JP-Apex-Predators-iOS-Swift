@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let apController = PredatorController()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationStack {
+            List {
+                ForEach(apController.apexPredators) { predator in
+                    
+                    NavigationLink(destination: Text("Dino details go here")) {
+                        Text(predator.name)
+                    }
+                    
+                }
+                .navigationTitle("Apex Predators")
+            }
         }
-        .padding()
+        
     }
 }
 
