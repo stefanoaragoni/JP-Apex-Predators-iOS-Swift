@@ -41,13 +41,13 @@ class PredatorController {
     func typeIcon(for type: String) -> String {
         switch type {
         case "All":
-            return "square.stack.2d.up.fill"
+            return "square.stack.3d.up.fill"
         case "Land":
             return "leaf.fill"
         case "Air":
             return "wind"
         case "Sea":
-            return "srop.fill"
+            return "drop.fill"
         default:
             return "questionmark"
         }

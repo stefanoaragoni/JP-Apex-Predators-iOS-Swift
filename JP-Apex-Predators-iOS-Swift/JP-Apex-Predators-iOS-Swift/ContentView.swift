@@ -11,9 +11,11 @@ struct ContentView: View {
     
     let apController = PredatorController()
     @State var sortAlphanetical = false           // if var changes View when changed, use @State
-    @State var filter = false
+    @State var currentFilter = "All"
     
     var body: some View {
+        
+        apController.filterBy(type: currentFilter)
         
         if sortAlphanetical{
             apController.sortByAlphabetical()
@@ -37,7 +39,9 @@ struct ContentView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     
                     Button {
-                        sortAlphanetical.toggle()
+                        withAnimation {
+                            sortAlphanetical.toggle()
+                        }
                     } label: {
                         if sortAlphanetical {
                             Image(systemName: "film")
@@ -50,14 +54,20 @@ struct ContentView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                 
-                    Button {
-                        filter.toggle()
-                    } label: {
-                        if filter {
-                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                        } else {
-                            Image(systemName: "line.3.horizontal.decrease.circle")
+                    Menu {
+                        Picker("Filter", selection: $currentFilter.animation()) {
+                            ForEach(apController.typeFilters, id: \.self){ type in
+                                HStack{
+                                    Text(type)
+                                    
+                                    Spacer()
+                                    
+                                    Image(systemName: apController.typeIcon(for: type))
+                                }
+                            }
                         }
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
                     }
                     
                 }
