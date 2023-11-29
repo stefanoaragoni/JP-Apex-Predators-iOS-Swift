@@ -11,6 +11,7 @@ struct ContentView: View {
     
     let apController = PredatorController()
     @State var sortAlphanetical = false           // if var changes View when changed, use @State
+    @State var filter = false
     
     var body: some View {
         
@@ -42,6 +43,20 @@ struct ContentView: View {
                             Image(systemName: "film")
                         } else {
                             Image(systemName: "textformat")
+                        }
+                    }
+                    
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                
+                    Button {
+                        filter.toggle()
+                    } label: {
+                        if filter {
+                            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                        } else {
+                            Image(systemName: "line.3.horizontal.decrease.circle")
                         }
                     }
                     

@@ -9,7 +9,9 @@ import Foundation
 
 class PredatorController {
     
+    private var allApexPredators: [ApexPredator] = []
     var apexPredators: [ApexPredator] = []
+    let typeFilters = ["All", "Land", "Air", "Sea"]
     
     init() {
         self.decodeApexPredatorData()
@@ -24,7 +26,8 @@ class PredatorController {
                 let decoder = JSONDecoder()                               // Decodes de JSON data
                 decoder.keyDecodingStrategy = .convertFromSnakeCase         // Can convert from snake_case to camelCase
                 
-                apexPredators = try decoder.decode([ApexPredator].self, from: data)     // Stores the info in apexPredators
+                allApexPredators = try decoder.decode([ApexPredator].self, from: data)     // Stores the info in apexPredators
+                apexPredators = allApexPredators
                 
             } catch {
                 
@@ -35,6 +38,31 @@ class PredatorController {
         }
     }
     
+    func typeIcon(for type: String) -> String {
+        switch type {
+        case "All":
+            return "square.stack.2d.up.fill"
+        case "Land":
+            return "leaf.fill"
+        case "Air":
+            return "wind"
+        case "Sea":
+            return "srop.fill"
+        default:
+            return "questionmark"
+        }
+    }
+    
+    func filterBy(type: String) {
+        switch type {
+        case "Land", "Air", "Sea":
+            apexPredators = allApexPredators.filter {
+                $0.type == type.lowercased()
+            }
+        default:
+            apexPredators = allApexPredators
+        }
+    }
     
     func sortByAlphabetical(){
         apexPredators.sort(by: { $0.name < $1.name })       // sorts alphabetical
